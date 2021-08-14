@@ -6,16 +6,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "server": "node server.js",
-    "start": "npm run build && npm run server"
+    "start": "yarn build && yarn server"
   },
   "author": "Levi Richardson and Contributors",
   "license": "GPL-3.0",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "path": "^0.12.7",
     "pug": "^3.0.2",
+    "stytch": "^3.0.2",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
