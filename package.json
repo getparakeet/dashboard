@@ -4,13 +4,14 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc src/server.ts",
-    "server": "node src/server.js",
+    "build": "tsc",
+    "server": "node server.js",
     "start": "npm run build && npm run server"
   },
-  "author": "",
+  "author": "Levi Richardson and Contributors",
   "license": "GPL-3.0",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
