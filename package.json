@@ -12,12 +12,12 @@
   "license": "GPL-3.0",
   "dependencies": {
     "cors": "^2.8.5",
-    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-openid-connect": "^2.5.0",
     "helmet": "^4.6.0",
     "path": "^0.12.7",
     "pug": "^3.0.2",
-    "stytch": "^3.0.2",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
