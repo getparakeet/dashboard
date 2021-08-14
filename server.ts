@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 import * as path from "path";
 const app = express();
 
@@ -7,8 +8,8 @@ app.set('views', path.resolve('public'));
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.use(cors());
+app.use(helmet());
 // Identity
-
 app.get('/', (req: any, res: any) => {
   res.render('index.pug', { title: 'Hey', message: 'Hello there!' })
 })
