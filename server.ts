@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const { auth } = require('express-openid-connect');
+import { requiresAuth } from "express-openid-connect";
 import * as path from "path";
 const app = express();
 require('dotenv').config();
@@ -24,6 +25,9 @@ app.use(helmet());
 app.get('/', (req: any, res: any) => {
   res.render('index.pug')
 })
+app.get('/api/userdata', requiresAuth(), (req: any, res: any) => {
+  res.send(JSON.stringify(req.oidc.user))
+});
   app.listen(3000, () => {
     console.log(`App listening at http://localhost:3000`)
   })
