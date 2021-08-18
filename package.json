@@ -20,6 +20,7 @@
     "express-openid-connect": "^2.5.0",
     "hcloud-js": "^1.4.1",
     "helmet": "^4.6.0",
+    "js.poke": "^1.2.3",
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "sequelize": "^6.6.5",

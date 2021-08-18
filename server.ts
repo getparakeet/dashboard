@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const poke = require('js.poke');
 const cookieParser = require('cookie-parser')
 const { auth } = require('express-openid-connect');
 import { requiresAuth } from "express-openid-connect";
@@ -24,22 +25,27 @@ const config = {
   secret: process.env.AUTH0_HASHING_KEY,
   baseURL: 'http://localhost:3000',
   clientID: 'CQmqCPOL46mDy75l8LOdzminGaFIBYy2',
-  issuerBaseURL: 'https://parakeet-cloud.eu.auth0.com'
+  issuerBaseURL: 'https://parakeet-cloud.eu.auth0.com',
+  enableTelemetry: false
 };
 
 app.set('views', path.resolve('public'));
 app.set('view engine', 'pug');
+app.set('trust proxy', true);
 app.use(express.static('public'));
 app.use(cors());
 app.use(auth(config));
 app.use(helmet());
 app.use(cookieParser())
 app.get('/', (req: any, res: any) => {
-  res.render('index.pug')
+  res.render('index');
 })
-app.get('/api/userdata', requiresAuth(), (req: any, res: any) => {
-  res.json(req.oidc.user)
-});
+// random auth routes i didnt know where else to put
+app.get('/api/auth/userdata', (req: any, res: any) => {
+  res.json(
+    req.oidc.user
+  );
+})
 // payment
 app.get('/api/payment/create', requiresAuth(), async (req: any, res: any) => {
   if (req.cookies.cid) {
