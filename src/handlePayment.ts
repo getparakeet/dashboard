@@ -1,7 +1,6 @@
 const Stripe = require('stripe');
 const CryptoJS = require("crypto-js");
 const { useID } = require('@dothq/id');
-import sql from './db.js';
 import encryptString from "./encrypt.js";
 import decrypt from './decrypt.js';
 require('dotenv').config();
@@ -15,7 +14,6 @@ export default async function createCustomer(email: string) {
         email: email,
     })
     const encryptedCustomerId = await encryptString(customer.id);
-    sql.query(`INSERT INTO parakeetuserdata\nVALUES ('${userId}', '${encryptedCustomerId}', '0')`);
     return [encryptedCustomerId, userId];
 };
 // Charge for base price

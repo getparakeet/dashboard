@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Account | Create Project | Parakeet Cloud 
+        include incl/scripts.pug
+    body 
+        .p-40.m-8
+            h2(class="font-sans md:font-sans text-5xl font-extrabold") Create a Project
+            .p-6
+                form(action="/patagonia/create-project", method="get") 
+                    h2(class="font-sans md:font-sans text-5xl font-extrabold") Project name
+                    .p-6.pl-30
+                        input(type="text" class="outline-black focus:outline-none focus:ring focus:border-blue-300 p-2 w-46" name="project_name" placeholder="Name your project")
+                        .p-2.flex.flex-row
+                        button(type="submit" class="py-2 px-4 bg-green-500 text-white font-semibold rounded-lg shadow-md focus:outline-none") Choose a plan
+                            i.ms-Icon.ms-Icon--ChevronRight
+                #error-box.bg-red-700.border-red-300.p-2.opacity-75.rounded-lg.border-4.text-white.font-semibold.leading-tight
+                    p.text-gray-500 #{err}

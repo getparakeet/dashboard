@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Account | Create Project | Choose a Plan | Parakeet Cloud 
+        include incl/scripts.pug
+    body 
+        .p-40.m-8
+            h2#idk(class="font-sans md:font-sans text-5xl font-extrabold") Choose a Plan
+            .w-full.bg-gray-200.pt-8.px-3.mt-24.border-t-8(class='sm:px-0 md:px-3')
+                section.flex.flex-col.justify-center.-mt-24(class='sm:flex-row')
+                  article.bg-white.flex.flex-col.mt-0.border-t-8.border-gray-500.shadow-lg(class='sm:flex-1 lg:flex-initial lg:w-1/4 md:w-1/3 md:rounded-t-lg md:rounded-tr-none sm:mt-8')
+                    h3.text-center.text-3xl.font-bold.p-5.text-gray-600 Free
+                    ul.text-center
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Vanity URL
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 10,000 requests/month
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 24-hour e-mail Support
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 800 MB file limit
+                    .text-center.py-8.text-5xl.mt-auto
+                      span.font-bold.text-gray-900 $0
+                    .text-center.my-8.mt-auto
+                      a#freeBtn.inline-block.justify-center.bg-gray-600.px-5.py-3.rounded.text-white.text-xl.font-bold.shadow-lg Get Free
+                  article.bg-white.shadow-2xl.z-30.mt-8.flex.flex-col.border-t-8.border-green-500(class='sm:flex-1 lg:flex-initial lg:w-1/4 md:rounded-t-lg sm:mt-0')
+                    h3.text-center.text-green-600.text-4xl.font-bold.p-5 Pro
+                    ul.text-center
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Custom Subdomain
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Dedicated Server
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 8-hour e-mail Support
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 2 GB File Storage
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Unlimited Page Views
+                    .text-center.py-8.text-xl.mt-auto
+                      span.font-bold.text-gray-900(class="font-sans md:font-sans") $11.99/monthly
+                    .text-center.my-8.mt-auto
+                      a#proBtn.inline-block.justify-center.bg-green-500.px-5.py-3.rounded.text-white.text-xl.font-bold.shadow-lg Get Pro
+                  article.bg-white.flex.flex-col.mt-8.border-t-8.border-indigo-500.shadow-lg(class='sm:flex-1 lg:flex-initial lg:w-1/4 md:rounded-t-lg md:rounded-tl-none md:border-t-8')
+                    h3.text-center.text-3xl.font-bold.p-5.text-indigo-600 Premium
+                    ul.text-center
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Proxied Domain
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Dedicated Server
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 15-minute Support
+                      li.py-4.border-0.border-gray-light.border-b.border-solid 15 GB File Storage
+                      li.py-4.border-0.border-gray-light.border-b.border-solid Unlimited Page Views
+                    .text-center.py-8.text-xl.mt-auto
+                      span.font-bold.text-gray-900(class="font-sans md:font-sans") $16.99/monthly
+                    .text-center.my-8.mt-auto
+                      a#premiumBtn.inline-block.justify-center.bg-indigo-500.px-5.py-3.rounded.text-white.text-xl.font-bold.shadow-lg Get Premium
+                a.text-blue-400(href="https://getparakeet.dev/compare-to/vercel", target="_blank", rel="noopener noreferrer") Compare us to Vercel
+                    i.ms-Icon.ms-Icon--ChevronRight
+                br
+                a.text-blue-400(href="https://getparakeet.dev/compare-to/netlify", target="_blank", rel="noopener noreferrer") Compare us to Netlify
+                    i.ms-Icon.ms-Icon--ChevronRight
+                br
+                a.text-blue-400(href="https://getparakeet.dev/compare-to/heroku", target="_blank", rel="noopener noreferrer") Compare us to Heroku
+                    i.ms-Icon.ms-Icon--ChevronRight
+                br
+                a.text-blue-400(href="https://getparakeet.dev/compare-to/railway", target="_blank", rel="noopener noreferrer") Compare us to Railway
+                    i.ms-Icon.ms-Icon--ChevronRight
+        script(src='/assets/js/choose-a-plan.min.js')

@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Account | Parakeet Cloud 
+        include incl/scripts.pug
+    body 
+        .p-40.m-8
+            h2(class="font-sans md:font-sans text-5xl font-extrabold") hi, welcome back!
+            .flex.flex-row.justify-between
+                h2(class="font-sans md:font-sans text-3xl font-bold") Your projects
+                a(href="/patagonia/add-project") 
+                    .w-auto.button-padding.rounded-md.bg-parakeet-primary.text-white.flex.items-center.justify-center.text-2xl.text-standard.font-bold
+                        .ms-Icon.ms-Icon--Add.p-1
+                        p New project
+            .m-12
+                p(class="font-sans md:font-sans font-bold")

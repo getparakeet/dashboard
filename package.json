@@ -22,10 +22,11 @@
     "helmet": "^4.6.0",
     "js.poke": "^1.2.3",
     "path": "^0.12.7",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "pug": "^3.0.2",
     "sequelize": "^6.6.5",
     "stripe": "^8.169.0",
-    "tedious": "^11.4.0",
     "typescript": "^4.2.4"
   },
   "devDependencies": {
