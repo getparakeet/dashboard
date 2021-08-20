@@ -125,3 +125,5 @@ tmp/
 temp/
 # Remove .js files
 *.js
+!/public/assets/js/choose-a-plan.min.js
+!/public/assets/js/get-url-params.js

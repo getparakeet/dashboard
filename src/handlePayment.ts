@@ -7,33 +7,24 @@ require('dotenv').config();
 
 // initialize stripe
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
-// Create customer
-export default async function createCustomer(email: string) {
-    const userId = useID();
-    const customer = await stripe.customers.create({
-        email: email,
-    })
-    const encryptedCustomerId = await encryptString(customer.id);
-    return [encryptedCustomerId, userId];
-};
-// Charge for base price
-export async function chargeBase(customerId: string, userId: string) {
-    const charge = await stripe.charges.create({
-      amount: 2000,
-      currency: 'usd',
-      customer: 'cus_K2h1omKPbfcQlW',
-      source: 'tok_mastercard',
-      description: 'My First Test Charge (created for API docs)',
-    });
-    console.log(charge);
-}
-export async function createCharge() {
-    const charge = await stripe.charges.create({
-      amount: 2000,
-      currency: 'usd',
-      customer: 'cus_K2h1omKPbfcQlW',
-      source: 'tok_mastercard',
-      description: 'My First Test Charge (created for API docs)',
-    });
-    console.log(charge);
+export async function handleStripeCheckout() {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Parakeet Pro',
+          },
+          unit_amount: 1199,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'http://localhost:3000/api/payment/success',
+    cancel_url: 'http://localhost:3000/api/payment/cancel',
+  });
+  return session;
 }
