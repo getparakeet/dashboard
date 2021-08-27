@@ -104,6 +104,16 @@ app.post('/api/payment/create-checkout-session/:plan', async (req: any, res: { r
 
   res.redirect(303, session.url);
 });
+app.get('/api/payment/success', async (req: any, res: any) => {
+  const session = await stripe.checkout.sessions.retrieve(
+    req.query.session_id
+  );
+  if (session.payment_status === "paid") {
+    const encrypted = encryptString(session.id);
+    res.cookie('paidId', encrypted, { maxAge: 1000 * 60 * 60 * 24 * 365 });
+    res.render("payment-success");
+  }
+});
 // server creation
 app.get('/api/createserver', requiresAuth(), (req: any, res: any) => {
   createBaseServer();
